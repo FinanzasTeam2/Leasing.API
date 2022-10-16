@@ -3,9 +3,9 @@ using Leasing.API.Shared.Domain.Core.Comunication;
 
 namespace Leasing.API.App.Domain.Core.Comunication;
 
-public class ProfileUserResponse:BaseResponse<ProfileUser>
+public class ProfileUserResponse:BaseResponse<UserProfile>
 {
-    public ProfileUserResponse(ProfileUser resource) : base(resource)
+    public ProfileUserResponse(UserProfile resource) : base(resource)
     {
     }
 

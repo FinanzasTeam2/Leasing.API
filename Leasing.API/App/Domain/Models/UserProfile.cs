@@ -1,6 +1,6 @@
 ﻿namespace Leasing.API.App.Domain.Models;
 
-public class ProfileUser
+public class UserProfile
 {
     public int Id { get; set; }
     public string FirstName { get; set; }

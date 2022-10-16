@@ -6,5 +6,5 @@ public class User
     public string Password { get; set; }
 
     //RelationShip
-    public List<ProfileUser> ProfileUsers { get; set; } = new List<ProfileUser>();
+    public List<UserProfile> ProfileUsers { get; set; } = new List<UserProfile>();
 }

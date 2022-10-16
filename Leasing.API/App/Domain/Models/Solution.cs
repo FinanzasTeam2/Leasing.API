@@ -7,7 +7,7 @@ public class Solution
     public DateTime FirstPaymentDate { get; set; }
     public float Value { get; set; }
     //RelationShip
-    public ProfileUser ProfileUser { get; set; }
+    public UserProfile ProfileUser { get; set; }
     public int ProfileUserId { get; set; }
     public RateType RateType { get; set; }
     public int RateTypeId { get; set; }
