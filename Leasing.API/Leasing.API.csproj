@@ -23,7 +23,6 @@
     <ItemGroup>
       <Folder Include="App" />
       <Folder Include="App\Controllers" />
-      <Folder Include="App\Resources" />
       <Folder Include="App\Services" />
       <Folder Include="Shared" />
     </ItemGroup>
