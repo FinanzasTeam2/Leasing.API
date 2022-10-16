@@ -2,5 +2,5 @@
 
 public class SaveFeeTypeResource
 {
-    
+    public string FeeName { get; set; }
 }

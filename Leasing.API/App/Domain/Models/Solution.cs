@@ -6,6 +6,7 @@ public class Solution
     public string LoanDate  { get; set; }
     public DateTime FirstPaymentDate { get; set; }
     public float Value { get; set; }
+    
     //RelationShip
     public UserProfile ProfileUser { get; set; }
     public int ProfileUserId { get; set; }

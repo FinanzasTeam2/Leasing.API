@@ -2,5 +2,6 @@
 
 public class FeeTypeResource
 {
-    
+    public int Id { get; set; }
+    public string FeeName { get; set; }
 }

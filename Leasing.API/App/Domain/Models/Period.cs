@@ -3,8 +3,8 @@
 public class Period
 {
     public int  Id { get; set; }
-
     public float Quantity { get; set; }
+    
     //RelationShip
     public Time Time { get; set; }
     public int TimeId { get; set; }

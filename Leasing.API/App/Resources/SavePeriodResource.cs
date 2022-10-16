@@ -2,5 +2,5 @@
 
 public class SavePeriodResource
 {
-    
+    public float Quantity { get; set; }
 }
