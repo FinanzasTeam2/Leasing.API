@@ -23,7 +23,6 @@
     <ItemGroup>
       <Folder Include="App" />
       <Folder Include="App\Controllers" />
-      <Folder Include="App\Domain\Core\Comunication" />
       <Folder Include="App\Domain\Repository" />
       <Folder Include="App\Persistence\Repositories" />
       <Folder Include="App\Services" />

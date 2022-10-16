@@ -1,0 +1,7 @@
+E:\Desktop\UPC\2022-2\Finanzas\PROYECTO\Leasing.API\Leasing.API\obj\Debug\net6.0\Leasing.API.csproj.AssemblyReference.cache
+E:\Desktop\UPC\2022-2\Finanzas\PROYECTO\Leasing.API\Leasing.API\obj\Debug\net6.0\Leasing.API.GeneratedMSBuildEditorConfig.editorconfig
+E:\Desktop\UPC\2022-2\Finanzas\PROYECTO\Leasing.API\Leasing.API\obj\Debug\net6.0\Leasing.API.AssemblyInfoInputs.cache
+E:\Desktop\UPC\2022-2\Finanzas\PROYECTO\Leasing.API\Leasing.API\obj\Debug\net6.0\Leasing.API.AssemblyInfo.cs
+E:\Desktop\UPC\2022-2\Finanzas\PROYECTO\Leasing.API\Leasing.API\obj\Debug\net6.0\Leasing.API.csproj.CoreCompileInputs.cache
+E:\Desktop\UPC\2022-2\Finanzas\PROYECTO\Leasing.API\Leasing.API\obj\Debug\net6.0\Leasing.API.MvcApplicationPartsAssemblyInfo.cs
+E:\Desktop\UPC\2022-2\Finanzas\PROYECTO\Leasing.API\Leasing.API\obj\Debug\net6.0\Leasing.API.MvcApplicationPartsAssemblyInfo.cache
