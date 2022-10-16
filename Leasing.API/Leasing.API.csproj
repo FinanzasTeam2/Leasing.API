@@ -20,4 +20,14 @@
       <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.3.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="App" />
+      <Folder Include="App\Controllers" />
+      <Folder Include="App\Domain\Core\Comunication" />
+      <Folder Include="App\Domain\Repository" />
+      <Folder Include="App\Persistence\Repositories" />
+      <Folder Include="App\Services" />
+      <Folder Include="Shared" />
+    </ItemGroup>
+
 </Project>
