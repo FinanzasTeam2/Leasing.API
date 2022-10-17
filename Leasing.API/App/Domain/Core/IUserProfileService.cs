@@ -6,7 +6,7 @@ namespace Leasing.API.App.Domain.Core;
 public interface IUserProfileService
 {
     Task<IEnumerable<UserProfile>> ListAsync();
-    Task<ProfileUserResponse> SaveAsync(UserProfile profileUser);
-    Task<ProfileUserResponse> UpdateAsync(int id, UserProfile profileUser);
-    Task<ProfileUserResponse> DeleteAsync(int id);
+    Task<UserProfileResponse> SaveAsync(UserProfile profileUser);
+    Task<UserProfileResponse> UpdateAsync(int id, UserProfile profileUser);
+    Task<UserProfileResponse> DeleteAsync(int id);
 }

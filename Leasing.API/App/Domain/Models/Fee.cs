@@ -9,5 +9,5 @@ public class Fee
     public FeeType FeeType { get; set; }
     public int FeeTypeId { get; set; }
 
-    private List<Solution> Solutions { get; set; } = new List<Solution>();
+    public List<Solution> Solutions { get; set; } = new List<Solution>();
 }

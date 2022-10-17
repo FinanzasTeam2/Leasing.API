@@ -6,5 +6,5 @@ public class Time
     public float TimeUnit { get; set; }
     
     //RelationShip
-    private List<Period> Periods { get; set; } = new List<Period>();
+    public List<Period> Periods { get; set; } = new List<Period>();
 }

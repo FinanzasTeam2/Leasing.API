@@ -7,5 +7,5 @@ public class CurrencyType
     public float Price { get; set; }
     
     //RelationShip
-    private List<Solution> Solutions = new List<Solution>();
+    public List<Solution> Solutions = new List<Solution>();
 }

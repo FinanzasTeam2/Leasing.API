@@ -8,8 +8,8 @@ public class Solution
     public float Value { get; set; }
     
     //RelationShip
-    public UserProfile ProfileUser { get; set; }
-    public int ProfileUserId { get; set; }
+    public UserProfile UserProfile { get; set; }
+    public int UserProfileId { get; set; }
     public RateType RateType { get; set; }
     public int RateTypeId { get; set; }
     public Fee Fee { get; set; }

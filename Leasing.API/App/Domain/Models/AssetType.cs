@@ -6,5 +6,5 @@ public class AssetType
     public string Name { get; set; }
     
     //RelationShip
-    private List<Solution> Solutions { get; set; } = new List<Solution>();
+    public List<Solution> Solutions { get; set; } = new List<Solution>();
 }

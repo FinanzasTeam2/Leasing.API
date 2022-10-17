@@ -105,25 +105,56 @@ public class AppDbContext:DbContext
             
             // --------------------------- AssetType -------------------------------- //
             
+            //AssetType with Solution
+            builder.Entity<AssetType>()
+                .HasMany(p => p.Solutions)
+                .WithOne(p => p.AssetType)
+                .HasForeignKey(p => p.AssetTypeId);
+
             // --------------------------- CurrencyType -------------------------------- //
-
+            builder.Entity<CurrencyType>()
+                .HasMany(p => p.Solutions)
+                .WithOne(p => p.CurrencyType)
+                .HasForeignKey(p => p.CurrencyTypeId);
             // --------------------------- Fee -------------------------------- //
-            
+            builder.Entity<Fee>()
+                .HasMany(p => p.Solutions)
+                .WithOne(p => p.Fee)
+                .HasForeignKey(p => p.FeeId);
             // --------------------------- FeeType -------------------------------- //
-            
+            builder.Entity<FeeType>()
+                .HasMany(p => p.Fees)
+                .WithOne(p => p.FeeType)
+                .HasForeignKey(p => p.FeeTypeId);
             // --------------------------- Period -------------------------------- //
-            
+            builder.Entity<Period>()
+                .HasMany(p => p.Solutions)
+                .WithOne(p => p.Period)
+                .HasForeignKey(p => p.PeriodId);
             // --------------------------- RateType -------------------------------- //
-            
-            // --------------------------- Solution -------------------------------- //
-            
+            builder.Entity<RateType>()
+                .HasMany(p => p.Solutions)
+                .WithOne(p => p.RateType)
+                .HasForeignKey(p => p.RateTypeId);
             // --------------------------- Time -------------------------------- //
-            
+            builder.Entity<Time>()
+                .HasMany(p => p.Periods)
+                .WithOne(p => p.Time)
+                .HasForeignKey(p => p.TimeId);
             // --------------------------- User -------------------------------- //
-            
+            builder.Entity<User>()
+                .HasMany(p => p.ProfileUsers)
+                .WithOne(p => p.User)
+                .HasForeignKey(p => p.UserId);
             // --------------------------- UserProfile -------------------------------- //
-            
+            builder.Entity<UserProfile>()
+                .HasMany(p => p.Solutions)
+                .WithOne(p => p.UserProfile)
+                .HasForeignKey(p => p.UserProfileId);
             // --------------------------- VAT -------------------------------- //
-
+            builder.Entity<VAT>()
+                .HasMany(p => p.Solutions)
+                .WithOne(p => p.VAT)
+                .HasForeignKey(p => p.VATId);
         }
 }

@@ -7,5 +7,5 @@ public class RateType
     public double Percentage { get; set; }
     
     //RelationShip
-    private List<Solution> Solutions { get; set; } = new List<Solution>();
+    public List<Solution> Solutions { get; set; } = new List<Solution>();
 }

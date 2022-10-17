@@ -9,5 +9,5 @@ public class Period
     public Time Time { get; set; }
     public int TimeId { get; set; }
 
-    private List<Solution> Solutions { get; set; } = new List<Solution>();
+    public List<Solution> Solutions { get; set; } = new List<Solution>();
 }
