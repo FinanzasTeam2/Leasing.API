@@ -96,7 +96,7 @@ public class AppDbContext:DbContext
             builder.Entity<UserProfile>().Property(p => p.LastName).HasMaxLength(50);
 
             //VAT
-            builder.Entity<VAT>().ToTable("Users");
+            builder.Entity<VAT>().ToTable("VATs");
             builder.Entity<VAT>().HasKey(p => p.Id);
             builder.Entity<VAT>().Property(p => p.Id).IsRequired();
             builder.Entity<VAT>().Property(p => p.Percentage).HasMaxLength(50);
@@ -143,7 +143,7 @@ public class AppDbContext:DbContext
                 .HasForeignKey(p => p.TimeId);
             // --------------------------- User -------------------------------- //
             builder.Entity<User>()
-                .HasMany(p => p.ProfileUsers)
+                .HasMany(p => p.UserProfiles)
                 .WithOne(p => p.User)
                 .HasForeignKey(p => p.UserId);
             // --------------------------- UserProfile -------------------------------- //
