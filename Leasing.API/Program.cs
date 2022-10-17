@@ -36,7 +36,7 @@ builder.Services.AddCors();
 // Dependency Injection Configuration
 
 builder.Services.AddScoped<IAssetTypeRepository, AssetTypeRepository>();
-builder.Services.AddScoped<IAssetTypeService, IAssetTypeService>();
+builder.Services.AddScoped<IAssetTypeService, AssetTypeService>();
 
 builder.Services.AddScoped<ICurrencyTypeRepository, CurrencyTypeRepository>();
 builder.Services.AddScoped<ICurrencyTypeService, CurrencyTypeService>();
@@ -51,7 +51,7 @@ builder.Services.AddScoped<IPeriodRepository, PeriodRepository>();
 builder.Services.AddScoped<IPeriodService, PeriodService>();
 
 builder.Services.AddScoped<IRateTypeRepository, RateTypeRepository>();
-builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IRateTypeService, RateTypeService>();
 
 builder.Services.AddScoped<ISolutionRepository, SolutionRepository>();
 builder.Services.AddScoped<ISolutionService, SolutionService>();
