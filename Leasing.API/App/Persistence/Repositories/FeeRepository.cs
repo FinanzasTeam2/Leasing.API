@@ -12,26 +12,26 @@ public class FeeRepository:BaseRepository,IFeeRepository
 
     public Task<IEnumerable<Fee>> ListAsync()
     {
-        throw new NotImplementedException();
+        return await _context.Fee.ToListAsync();
     }
 
     public Task AddAsync(Fee fee)
     {
-        throw new NotImplementedException();
+        await _context.Fee.AddAsync(fee);
     }
 
     public Task<Fee> FindByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Fee.FindAsync(id);
     }
 
     public void Update(Fee fee)
     {
-        throw new NotImplementedException();
+        _context.Fee.Update(fee);
     }
 
     public void Remove(Fee fee)
     {
-        throw new NotImplementedException();
+        _context.Fee.Remove(fee);
     }
 }

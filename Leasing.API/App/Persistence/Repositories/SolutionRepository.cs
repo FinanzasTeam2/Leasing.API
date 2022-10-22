@@ -12,26 +12,26 @@ public class SolutionRepository:BaseRepository,ISolutionRepository
 
     public Task<IEnumerable<Solution>> ListAsync()
     {
-        throw new NotImplementedException();
+        return await _context.Solution.ToListAsync();
     }
 
     public Task AddAsync(Solution solution)
     {
-        throw new NotImplementedException();
+        await _context.Solution.AddAsync(solution);
     }
 
     public Task<Solution> FindByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Solution.FindAsync(id);
     }
 
     public void Update(Solution solution)
     {
-        throw new NotImplementedException();
+        _context.Solution.Update(solution);
     }
 
     public void Remove(Solution solution)
     {
-        throw new NotImplementedException();
+        _context.Solution.Remove(solution);
     }
 }

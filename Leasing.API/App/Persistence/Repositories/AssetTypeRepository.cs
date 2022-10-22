@@ -12,26 +12,26 @@ public class AssetTypeRepository:BaseRepository,IAssetTypeRepository
 
     public Task<IEnumerable<AssetType>> ListAsync()
     {
-        throw new NotImplementedException();
+        return await _context.AssetType.ToListAsync();
     }
 
     public Task AddAsync(AssetType assetType)
     {
-        throw new NotImplementedException();
+        await _context.AssetType.AddAsync(assetType);
     }
 
     public Task<AssetType> FindByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.AssetType.FindAsync(id);
     }
 
     public void Update(AssetType assetType)
     {
-        throw new NotImplementedException();
+        _context.AssetType.Update(assetType);
     }
 
     public void Remove(AssetType assetType)
     {
-        throw new NotImplementedException();
+        _context.AssetType.Remove(assetType);
     }
 }

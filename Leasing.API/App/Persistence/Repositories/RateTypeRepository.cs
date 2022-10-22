@@ -12,26 +12,26 @@ public class RateTypeRepository:BaseRepository,IRateTypeRepository
 
     public Task<IEnumerable<RateType>> ListAsync()
     {
-        throw new NotImplementedException();
+        return await _context.RateType.ToListAsync();
     }
 
     public Task AddAsync(RateType rateType)
     {
-        throw new NotImplementedException();
+        await _context.RateType.AddAsync(rateType);
     }
 
     public Task<RateType> FindByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.RateType.FindAsync(id);
     }
 
     public void Update(RateType rateType)
     {
-        throw new NotImplementedException();
+        _context.RateType.Update(rateType);
     }
 
     public void Remove(RateType rateType)
     {
-        throw new NotImplementedException();
+        _context.RateType.Remove(rateType);
     }
 }

@@ -12,26 +12,26 @@ public class CurrencyTypeRepository:BaseRepository,ICurrencyTypeRepository
 
     public Task<IEnumerable<CurrencyType>> ListAsync()
     {
-        throw new NotImplementedException();
+        return await _context.CurrencyType.ToListAsync();
     }
 
     public Task AddAsync(CurrencyType currencyType)
     {
-        throw new NotImplementedException();
+        await _context.CurrencyType.AddAsync(currencyType);
     }
 
     public Task<CurrencyType> FindByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.CurrencyType.FindAsync(id);
     }
 
     public void Update(CurrencyType currencyType)
     {
-        throw new NotImplementedException();
+        _context.CurrencyType.Update(currencyType);
     }
 
     public void Remove(CurrencyType currencyType)
     {
-        throw new NotImplementedException();
+        _context.CurrencyType.Remove(currencyType);
     }
 }

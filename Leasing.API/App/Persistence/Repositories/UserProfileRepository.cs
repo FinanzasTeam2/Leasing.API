@@ -12,26 +12,26 @@ public class UserProfileRepository:BaseRepository,IUserProfileRepository
 
     public Task<IEnumerable<UserProfile>> ListAsync()
     {
-        throw new NotImplementedException();
+        return await _context.UserProfile.ToListAsync();
     }
 
     public Task AddAsync(UserProfile userProfile)
     {
-        throw new NotImplementedException();
+        await _context.UserProfile.AddAsync(userProfile);
     }
 
     public Task<UserProfile> FindByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.UserProfile.FindAsync(id);
     }
 
     public void Update(UserProfile userProfile)
     {
-        throw new NotImplementedException();
+        _context.UserProfile.Update(userProfile);
     }
 
     public void Remove(UserProfile userProfile)
     {
-        throw new NotImplementedException();
+        _context.UserProfile.Remove(userProfile);
     }
 }

@@ -12,26 +12,26 @@ public class PeriodRepository:BaseRepository,IPeriodRepository
 
     public Task<IEnumerable<Period>> ListAsync()
     {
-        throw new NotImplementedException();
+        return await _context.Period.ToListAsync();
     }
 
     public Task AddAsync(Period period)
     {
-        throw new NotImplementedException();
+        await _context.Period.AddAsync(period);
     }
 
     public Task<Period> FindByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _context.Period.FindAsync(id);
     }
 
     public void Update(Period period)
     {
-        throw new NotImplementedException();
+        _context.Period.Update(period);
     }
 
     public void Remove(Period period)
     {
-        throw new NotImplementedException();
+        _context.Period.Remove(period);
     }
 }
