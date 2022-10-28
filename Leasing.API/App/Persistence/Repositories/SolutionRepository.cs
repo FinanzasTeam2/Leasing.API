@@ -1,37 +1,40 @@
 ﻿using Leasing.API.App.Domain.Models;
 using Leasing.API.App.Domain.Repository;
 using Leasing.API.App.Shared.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
 
-namespace Leasing.API.App.Persistence.Repositories;
-
-public class SolutionRepository:BaseRepository,ISolutionRepository
+namespace Leasing.API.App.Persistence.Repositories
 {
-    public SolutionRepository(AppDbContext context) : base(context)
-    {
-    }
 
-    public Task<IEnumerable<Solution>> ListAsync()
+    public class SolutionRepository : BaseRepository, ISolutionRepository
     {
-        return await _context.Solution.ToListAsync();
-    }
+        public SolutionRepository(AppDbContext context) : base(context)
+        {
+        }
 
-    public Task AddAsync(Solution solution)
-    {
-        await _context.Solution.AddAsync(solution);
-    }
+        public async Task<IEnumerable<Solution>> ListAsync()
+        {
+            return await _context.Solutions.ToListAsync();
+        }
 
-    public Task<Solution> FindByIdAsync(int id)
-    {
-        return await _context.Solution.FindAsync(id);
-    }
+        public async Task AddAsync(Solution solution)
+        {
+            await _context.Solutions.AddAsync(solution);
+        }
 
-    public void Update(Solution solution)
-    {
-        _context.Solution.Update(solution);
-    }
+        public async Task<Solution> FindByIdAsync(int id)
+        {
+            return await _context.Solutions.FindAsync(id);
+        }
 
-    public void Remove(Solution solution)
-    {
-        _context.Solution.Remove(solution);
+        public void Update(Solution solution)
+        {
+            _context.Solutions.Update(solution);
+        }
+
+        public void Remove(Solution solution)
+        {
+            _context.Solutions.Remove(solution);
+        }
     }
 }

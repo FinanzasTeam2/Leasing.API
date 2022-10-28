@@ -1,37 +1,40 @@
 ﻿using Leasing.API.App.Domain.Models;
 using Leasing.API.App.Domain.Repository;
 using Leasing.API.App.Shared.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
 
-namespace Leasing.API.App.Persistence.Repositories;
-
-public class UserProfileRepository:BaseRepository,IUserProfileRepository
+namespace Leasing.API.App.Persistence.Repositories
 {
-    public UserProfileRepository(AppDbContext context) : base(context)
-    {
-    }
 
-    public Task<IEnumerable<UserProfile>> ListAsync()
+    public class UserProfileRepository : BaseRepository, IUserProfileRepository
     {
-        return await _context.UserProfile.ToListAsync();
-    }
+        public UserProfileRepository(AppDbContext context) : base(context)
+        {
+        }
 
-    public Task AddAsync(UserProfile userProfile)
-    {
-        await _context.UserProfile.AddAsync(userProfile);
-    }
+        public async Task<IEnumerable<UserProfile>> ListAsync()
+        {
+            return await _context.UserProfiles.ToListAsync();
+        }
 
-    public Task<UserProfile> FindByIdAsync(int id)
-    {
-        return await _context.UserProfile.FindAsync(id);
-    }
+        public async Task AddAsync(UserProfile userProfile)
+        {
+            await _context.UserProfiles.AddAsync(userProfile);
+        }
 
-    public void Update(UserProfile userProfile)
-    {
-        _context.UserProfile.Update(userProfile);
-    }
+        public async Task<UserProfile> FindByIdAsync(int id)
+        {
+            return await _context.UserProfiles.FindAsync(id);
+        }
 
-    public void Remove(UserProfile userProfile)
-    {
-        _context.UserProfile.Remove(userProfile);
+        public void Update(UserProfile userProfile)
+        {
+            _context.UserProfiles.Update(userProfile);
+        }
+
+        public void Remove(UserProfile userProfile)
+        {
+            _context.UserProfiles.Remove(userProfile);
+        }
     }
 }

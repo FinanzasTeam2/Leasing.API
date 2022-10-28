@@ -1,37 +1,40 @@
 ﻿using Leasing.API.App.Domain.Models;
 using Leasing.API.App.Domain.Repository;
 using Leasing.API.App.Shared.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
 
-namespace Leasing.API.App.Persistence.Repositories;
-
-public class PeriodRepository:BaseRepository,IPeriodRepository
+namespace Leasing.API.App.Persistence.Repositories
 {
-    public PeriodRepository(AppDbContext context) : base(context)
-    {
-    }
 
-    public Task<IEnumerable<Period>> ListAsync()
+    public class PeriodRepository : BaseRepository, IPeriodRepository
     {
-        return await _context.Period.ToListAsync();
-    }
+        public PeriodRepository(AppDbContext context) : base(context)
+        {
+        }
 
-    public Task AddAsync(Period period)
-    {
-        await _context.Period.AddAsync(period);
-    }
+        public async Task<IEnumerable<Period>> ListAsync()
+        {
+            return await _context.Periods.ToListAsync();
+        }
 
-    public Task<Period> FindByIdAsync(int id)
-    {
-        return await _context.Period.FindAsync(id);
-    }
+        public async Task AddAsync(Period period)
+        {
+            await _context.Periods.AddAsync(period);
+        }
 
-    public void Update(Period period)
-    {
-        _context.Period.Update(period);
-    }
+        public async Task<Period> FindByIdAsync(int id)
+        {
+            return await _context.Periods.FindAsync(id);
+        }
 
-    public void Remove(Period period)
-    {
-        _context.Period.Remove(period);
+        public void Update(Period period)
+        {
+            _context.Periods.Update(period);
+        }
+
+        public void Remove(Period period)
+        {
+            _context.Periods.Remove(period);
+        }
     }
 }

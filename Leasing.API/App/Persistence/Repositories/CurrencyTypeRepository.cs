@@ -1,37 +1,39 @@
 ﻿using Leasing.API.App.Domain.Models;
 using Leasing.API.App.Domain.Repository;
 using Leasing.API.App.Shared.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
 
-namespace Leasing.API.App.Persistence.Repositories;
-
-public class CurrencyTypeRepository:BaseRepository,ICurrencyTypeRepository
+namespace Leasing.API.App.Persistence.Repositories
+{
+public class CurrencyTypeRepository : BaseRepository, ICurrencyTypeRepository
 {
     public CurrencyTypeRepository(AppDbContext context) : base(context)
     {
     }
 
-    public Task<IEnumerable<CurrencyType>> ListAsync()
+    public async Task<IEnumerable<CurrencyType>> ListAsync()
     {
-        return await _context.CurrencyType.ToListAsync();
+            return await _context.CurrencyTypes.ToListAsync();
     }
 
-    public Task AddAsync(CurrencyType currencyType)
+    public async Task AddAsync(CurrencyType currencyType)
     {
-        await _context.CurrencyType.AddAsync(currencyType);
+        await _context.CurrencyTypes.AddAsync(currencyType);
     }
 
-    public Task<CurrencyType> FindByIdAsync(int id)
+    public async Task<CurrencyType> FindByIdAsync(int id)
     {
-        return await _context.CurrencyType.FindAsync(id);
+        return await _context.CurrencyTypes.FindAsync(id);
     }
 
     public void Update(CurrencyType currencyType)
     {
-        _context.CurrencyType.Update(currencyType);
+        _context.CurrencyTypes.Update(currencyType);
     }
 
     public void Remove(CurrencyType currencyType)
     {
-        _context.CurrencyType.Remove(currencyType);
+        _context.CurrencyTypes.Remove(currencyType);
     }
+}
 }

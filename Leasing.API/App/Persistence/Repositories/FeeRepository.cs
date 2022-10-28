@@ -1,37 +1,40 @@
 ﻿using Leasing.API.App.Domain.Models;
 using Leasing.API.App.Domain.Repository;
 using Leasing.API.App.Shared.Persistence.Contexts;
+using Microsoft.EntityFrameworkCore;
 
-namespace Leasing.API.App.Persistence.Repositories;
-
-public class FeeRepository:BaseRepository,IFeeRepository
+namespace Leasing.API.App.Persistence.Repositories
 {
-    public FeeRepository(AppDbContext context) : base(context)
-    {
-    }
 
-    public Task<IEnumerable<Fee>> ListAsync()
+    public class FeeRepository : BaseRepository, IFeeRepository
     {
-        return await _context.Fee.ToListAsync();
-    }
+        public FeeRepository(AppDbContext context) : base(context)
+        {
+        }
 
-    public Task AddAsync(Fee fee)
-    {
-        await _context.Fee.AddAsync(fee);
-    }
+        public async Task<IEnumerable<Fee>> ListAsync()
+        {
+            return await _context.Fees.ToListAsync();
+        }
 
-    public Task<Fee> FindByIdAsync(int id)
-    {
-        return await _context.Fee.FindAsync(id);
-    }
+        public async Task AddAsync(Fee fee)
+        {
+            await _context.Fees.AddAsync(fee);
+        }
 
-    public void Update(Fee fee)
-    {
-        _context.Fee.Update(fee);
-    }
+        public async Task<Fee> FindByIdAsync(int id)
+        {
+            return await _context.Fees.FindAsync(id);
+        }
 
-    public void Remove(Fee fee)
-    {
-        _context.Fee.Remove(fee);
+        public void Update(Fee fee)
+        {
+            _context.Fees.Update(fee);
+        }
+
+        public void Remove(Fee fee)
+        {
+            _context.Fees.Remove(fee);
+        }
     }
 }
