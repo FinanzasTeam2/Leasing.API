@@ -62,6 +62,12 @@ builder.Services.AddScoped<IUserProfileService, UserProfileService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 
+builder.Services.AddScoped<ITimeRepository, TimeRepository>();
+builder.Services.AddScoped<ITimeService, TimeService>();
+
+builder.Services.AddScoped<IVATRepository, VATRepository>();
+builder.Services.AddScoped<IVATService, VATService>();
+
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // AutoMapper Configuration
