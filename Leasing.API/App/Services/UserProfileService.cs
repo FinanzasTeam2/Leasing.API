@@ -44,6 +44,7 @@ public class UserProfileService:IUserProfileService
         if (existingUserProfile == null)
             return new UserProfileResponse("UserProfile not found.");
 
+        existingUserProfile.UserId = UserProfile.UserId;
         existingUserProfile.FirstName = UserProfile.FirstName;
         existingUserProfile.LastName = UserProfile.LastName;
 

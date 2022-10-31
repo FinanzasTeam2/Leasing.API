@@ -60,7 +60,7 @@ builder.Services.AddScoped<IUserProfileRepository, UserProfileRepository>();
 builder.Services.AddScoped<IUserProfileService, UserProfileService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<UserService, UserService>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

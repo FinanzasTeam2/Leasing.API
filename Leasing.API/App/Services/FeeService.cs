@@ -45,6 +45,7 @@ public class FeeService:IFeeService
             return new FeeResponse("Fee not found.");
 
         existingFee.Quantity= Fee.Quantity;
+        existingFee.FeeTypeId= Fee.FeeTypeId;
 
         try
         {

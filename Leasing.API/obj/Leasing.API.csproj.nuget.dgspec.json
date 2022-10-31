@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\reyno\\OneDrive\\Escritorio\\Leasing.API\\Leasing.API\\Leasing.API.csproj": {}
+    "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO\\v2\\Leasing.API\\Leasing.API\\Leasing.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\reyno\\OneDrive\\Escritorio\\Leasing.API\\Leasing.API\\Leasing.API.csproj": {
+    "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO\\v2\\Leasing.API\\Leasing.API\\Leasing.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\reyno\\OneDrive\\Escritorio\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
+        "projectUniqueName": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO\\v2\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
         "projectName": "Leasing.API",
-        "projectPath": "C:\\Users\\reyno\\OneDrive\\Escritorio\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
-        "packagesPath": "C:\\Users\\reyno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\reyno\\OneDrive\\Escritorio\\Leasing.API\\Leasing.API\\obj\\",
+        "projectPath": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO\\v2\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
+        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
+        "outputPath": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO\\v2\\Leasing.API\\Leasing.API\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\reyno\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -98,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

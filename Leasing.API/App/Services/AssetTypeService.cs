@@ -45,7 +45,6 @@ public class AssetTypeService:IAssetTypeService
             return new AssetTypeResponse("AssetType not found.");
 
         existingAssetType.Name = AssetType.Name;
-        existingAssetType.Solutions = AssetType.Solutions;
 
         try
         {
