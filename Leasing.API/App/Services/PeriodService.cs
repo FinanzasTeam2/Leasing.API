@@ -79,4 +79,9 @@ public class PeriodService:IPeriodService
             return new PeriodResponse($"An error occurred while deleting the Period: {e.Message}");
         }
     }
+
+    public async Task<IEnumerable<Period>> ListByTimeIdAsync(int timeId)
+    {
+        return await _PeriodRepository.FindByTimeIdAsync(timeId);
+    }
 }

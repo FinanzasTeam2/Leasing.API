@@ -36,5 +36,13 @@ namespace Leasing.API.App.Persistence.Repositories
         {
             _context.Periods.Remove(period);
         }
+
+        public async Task<IEnumerable<Period>> FindByTimeIdAsync(int timeId)
+        {
+            return await _context.Periods
+                .Where(p => p.TimeId == timeId)
+                .Include(p => p.Time)
+                .ToListAsync();
+        }
     }
 }

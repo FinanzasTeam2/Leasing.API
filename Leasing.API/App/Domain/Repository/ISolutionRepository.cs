@@ -9,4 +9,5 @@ public interface ISolutionRepository
     Task<Solution> FindByIdAsync(int id);
     void Update(Solution solution);
     void Remove(Solution solution);
+    Task<IEnumerable<Solution>>FindByUserProfileIdAsync(int userprofileId);
 }

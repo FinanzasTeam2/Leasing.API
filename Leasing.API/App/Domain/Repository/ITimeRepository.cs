@@ -6,4 +6,5 @@ public interface ITimeRepository
 {
     Task<IEnumerable<Time>> ListAsync();
     Task<Time> FindByIdAsync(int id);
+
 }

@@ -9,4 +9,5 @@ public interface IUserProfileService
     Task<UserProfileResponse> SaveAsync(UserProfile profileUser);
     Task<UserProfileResponse> UpdateAsync(int id, UserProfile profileUser);
     Task<UserProfileResponse> DeleteAsync(int id);
+    Task<IEnumerable<UserProfile>> ListByUserIdAsync(int userId);
 }

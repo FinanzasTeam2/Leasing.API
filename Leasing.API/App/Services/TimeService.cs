@@ -22,4 +22,5 @@ public class TimeService:ITimeService
     {
         return await _TimeRepository.ListAsync();
     }
+    
 }

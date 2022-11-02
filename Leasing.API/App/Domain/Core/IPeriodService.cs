@@ -9,4 +9,5 @@ public interface IPeriodService
     Task<PeriodResponse> SaveAsync(Period period);
     Task<PeriodResponse> UpdateAsync(int id, Period period);
     Task<PeriodResponse> DeleteAsync(int id);
+    Task<IEnumerable<Period>> ListByTimeIdAsync(int timeId);
 }

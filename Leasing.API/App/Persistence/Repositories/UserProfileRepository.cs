@@ -36,5 +36,13 @@ namespace Leasing.API.App.Persistence.Repositories
         {
             _context.UserProfiles.Remove(userProfile);
         }
+
+        public async Task<IEnumerable<UserProfile>> FindByUserIdAsync(int userId)
+        {
+            return await _context.UserProfiles
+                .Where(p => p.UserId == userId)
+                .Include(p => p.User)
+                .ToListAsync();
+        }
     }
 }

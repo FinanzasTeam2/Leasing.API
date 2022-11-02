@@ -20,4 +20,5 @@ public class TimeRepository:BaseRepository,ITimeRepository
     {
         return await _context.Times.FindAsync(id);
     }
+    
 }

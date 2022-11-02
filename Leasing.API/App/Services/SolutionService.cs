@@ -80,4 +80,9 @@ public class SolutionService:ISolutionService
             return new SolutionResponse($"An error occurred while deleting the Solution: {e.Message}");
         }
     }
+
+    public async Task<IEnumerable<Solution>> ListByUserProfileIdAsync(int userprofileId)
+    {
+        return await _SolutionRepository.FindByUserProfileIdAsync(userprofileId);
+    }
 }

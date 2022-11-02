@@ -81,4 +81,9 @@ public class UserProfileService:IUserProfileService
             return new UserProfileResponse($"An error occurred while deleting the UserProfile: {e.Message}");
         }
     }
+
+    public async Task<IEnumerable<UserProfile>> ListByUserIdAsync(int userId)
+    {
+        return await _UserProfileRepository.FindByUserIdAsync(userId);
+    }
 }

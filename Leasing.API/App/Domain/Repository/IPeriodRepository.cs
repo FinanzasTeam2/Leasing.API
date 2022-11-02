@@ -9,4 +9,5 @@ public interface IPeriodRepository
     Task<Period> FindByIdAsync(int id);
     void Update(Period period);
     void Remove(Period period);
+    Task<IEnumerable<Period>> FindByTimeIdAsync(int timeId);
 }

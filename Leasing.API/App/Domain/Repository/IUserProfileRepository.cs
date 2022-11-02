@@ -9,4 +9,5 @@ public interface IUserProfileRepository
     Task<UserProfile> FindByIdAsync(int id);
     void Update(UserProfile userProfile);
     void Remove(UserProfile userProfile);
+    Task<IEnumerable<UserProfile>> FindByUserIdAsync(int userId);
 }
