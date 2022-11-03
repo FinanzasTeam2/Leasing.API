@@ -1,6 +1,7 @@
 using AutoMapper;
 using Leasing.API.App.Domain.Models;
 using Leasing.API.App.Resources;
+using Leasing.API.App.Resources.Period;
 
 namespace Leasing.API.App.Mapping;
 

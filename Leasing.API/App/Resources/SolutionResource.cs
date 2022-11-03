@@ -1,4 +1,6 @@
-﻿namespace Leasing.API.App.Resources;
+﻿using Leasing.API.App.Resources.Period;
+
+namespace Leasing.API.App.Resources;
 
 public class SolutionResource
 {
@@ -8,11 +10,11 @@ public class SolutionResource
     public DateTime FirstPaymentDate { get; set; }
     public float Value { get; set; }
 
-    public UserProfileResource UserProfile { get; set; }
-    public RateTypeResource RateType { get; set; }
-    public FeeResource Fee { get; set; }
-    public AssetTypeResource AssetType { get; set; }
-    public VATResource VAT { get; set; }
-    public PeriodResource Period { get; set; }
-    public CurrencyTypeResource CurrencyType { get; set; }
+    public int UserProfileId { get; set; }
+    public int RateTypeId { get; set; }
+    public int FeeId { get; set; }
+    public int AssetTypeId { get; set; }
+    public int VATId { get; set; }
+    public int PeriodId { get; set; }
+    public int CurrencyTypeId { get; set; }
 }

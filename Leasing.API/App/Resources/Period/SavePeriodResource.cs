@@ -1,4 +1,4 @@
-﻿namespace Leasing.API.App.Resources;
+﻿namespace Leasing.API.App.Resources.Period;
 
 public class SavePeriodResource
 {

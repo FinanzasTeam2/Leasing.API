@@ -25,7 +25,7 @@ public class UserProfileSolutionsController
     [SwaggerOperation(
         Summary = "Get All Solutions for given UserProfile",
         Description = "Get existing Solutions associated with the specified UserProfile",
-        OperationId = "GetUserProfile",
+        OperationId = "GetUserProfileSolutions",
         Tags = new[] {"UserProfiles"})]
     public async Task<IEnumerable<SolutionResource>> GetAllByUserProfileIdAsync(int userprofileId)
     {

@@ -13,19 +13,19 @@ namespace Leasing.API.App.Controllers;
 [Produces("application/json")]
 public class SolutionController:ControllerBase
 {
-    private readonly ISolutionService _SolutionService;
+    private readonly ISolutionService _solutionService;
     private readonly IMapper _mapper;
     
-    public SolutionController(ISolutionService SolutionService, IMapper mapper)
+    public SolutionController(ISolutionService solutionService, IMapper mapper)
     {
-        _SolutionService = SolutionService;
+        _solutionService = solutionService;
         _mapper = mapper;
     }
     [HttpGet]
     public async Task<IEnumerable<SolutionResource>> GetAllAsync()
     {
-        var brandVehicles = await _SolutionService.ListAsync();
-        var resources = _mapper.Map<IEnumerable<Solution>, IEnumerable<SolutionResource>>(brandVehicles);
+        var solutions = await _solutionService.ListAsync();
+        var resources = _mapper.Map<IEnumerable<Solution>, IEnumerable<SolutionResource>>(solutions);
 
         return resources;
     }
@@ -35,16 +35,16 @@ public class SolutionController:ControllerBase
         if (!ModelState.IsValid)
             return BadRequest(ModelState.GetErrorMessages());
 
-        var brandVehicle = _mapper.Map<SaveSolutionResource, Solution>(resource);
+        var solution = _mapper.Map<SaveSolutionResource, Solution>(resource);
 
-        var result = await _SolutionService.SaveAsync(brandVehicle);
+        var result = await _solutionService.SaveAsync(solution);
 
         if (!result.Success)
             return BadRequest(result.Message);
 
-        var brandVehicleResource = _mapper.Map<Solution, SolutionResource>(result.Resource);
+        var solutionResource = _mapper.Map<Solution, SolutionResource>(result.Resource);
 
-        return Ok(brandVehicleResource);
+        return Ok(solutionResource);
     }
     [HttpPut("{id}")]
     public async Task<IActionResult> PutAsync(int id, [FromBody] SaveSolutionResource resource)
@@ -54,7 +54,7 @@ public class SolutionController:ControllerBase
 
         var brandVehicle = _mapper.Map<SaveSolutionResource, Solution>(resource);
 
-        var result = await _SolutionService.UpdateAsync(id, brandVehicle);
+        var result = await _solutionService.UpdateAsync(id, brandVehicle);
 
         if (!result.Success)
             return BadRequest(result.Message);
@@ -66,7 +66,7 @@ public class SolutionController:ControllerBase
     [HttpDelete("{id}")]    
     public async Task<IActionResult> DeleteAsync(int id)
     {
-        var result = await _SolutionService.DeleteAsync(id);
+        var result = await _solutionService.DeleteAsync(id);
 
         if (!result.Success)
             return BadRequest(result.Message);

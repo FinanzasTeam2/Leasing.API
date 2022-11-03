@@ -8,28 +8,55 @@ namespace Leasing.API.App.Services;
 
 public class SolutionService:ISolutionService
 {
-    private readonly ISolutionRepository _SolutionRepository;
-
+    private readonly ISolutionRepository _solutionRepository;
     private readonly IUnitOfWork _unitOfWork;
-    public SolutionService(ISolutionRepository SolutionRepository, IUnitOfWork unitOfWork)
+
+    private readonly IUserProfileRepository _userProfileRepository;
+    private readonly IRateTypeRepository _rateTypeRepository;
+    private readonly IFeeRepository _feeRepository;
+    private readonly IAssetTypeRepository _assetTypeRepository;
+    private readonly IVATRepository _vatRepository;
+    private readonly IPeriodRepository _periodRepository;
+    private readonly ICurrencyTypeRepository _currencyTypeRepository;
+    public SolutionService(ISolutionRepository solutionRepository, IUnitOfWork unitOfWork, IUserProfileRepository userProfileRepository,IRateTypeRepository rateTypeRepository,
+        IFeeRepository feeRepository,IAssetTypeRepository assetTypeRepository,IVATRepository vatRepository,IPeriodRepository periodRepository,
+        ICurrencyTypeRepository currencyTypeRepository)
     {
-        _SolutionRepository = SolutionRepository;
+        _solutionRepository = solutionRepository;
         _unitOfWork = unitOfWork;
+        _userProfileRepository=userProfileRepository; 
+        _rateTypeRepository   =rateTypeRepository;
+        _feeRepository=feeRepository;
+        _assetTypeRepository=assetTypeRepository;
+        _vatRepository=vatRepository;
+        _periodRepository=periodRepository;
+        _currencyTypeRepository=currencyTypeRepository;
     }
     
     public async Task<IEnumerable<Solution>> ListAsync()
     {
-        return await _SolutionRepository.ListAsync();
+        return await _solutionRepository.ListAsync();
     }
     
-    public async Task<SolutionResponse> SaveAsync(Solution Solution)
+    public async Task<IEnumerable<Solution>> ListByUserProfileIdAsync(int userprofileId)
     {
+        return await _solutionRepository.FindByUserProfileIdAsync(userprofileId);
+    }
+    
+    public async Task<SolutionResponse> SaveAsync(Solution solution)
+    {
+        //Validate UserProfile Id
+        var existingUserProfile = _userProfileRepository.FindByIdAsync(solution.UserProfileId);
+
+        if (existingUserProfile == null)
+            return new SolutionResponse("Invalid Category");
+
         try
         {
-            await _SolutionRepository.AddAsync(Solution);
+            await _solutionRepository.AddAsync(solution);
             await _unitOfWork.CompleteAsync();
 
-            return new SolutionResponse(Solution);
+            return new SolutionResponse(solution);
         }
         catch (Exception e)
         {
@@ -39,7 +66,7 @@ public class SolutionService:ISolutionService
 
     public async Task<SolutionResponse> UpdateAsync(int id, Solution Solution)
     {
-        var existingSolution = await _SolutionRepository.FindByIdAsync(id);
+        var existingSolution = await _solutionRepository.FindByIdAsync(id);
 
         if (existingSolution == null)
             return new SolutionResponse("Solution not found.");
@@ -49,7 +76,7 @@ public class SolutionService:ISolutionService
 
         try
         {
-            _SolutionRepository.Update(existingSolution);
+            _solutionRepository.Update(existingSolution);
             await _unitOfWork.CompleteAsync();
             
             return new SolutionResponse(existingSolution);
@@ -62,14 +89,14 @@ public class SolutionService:ISolutionService
 
     public async Task<SolutionResponse> DeleteAsync(int id)
     {
-        var existingSolution = await _SolutionRepository.FindByIdAsync(id);
+        var existingSolution = await _solutionRepository.FindByIdAsync(id);
 
         if (existingSolution == null)
             return new SolutionResponse("Solution not found.");
 
         try
         {
-            _SolutionRepository.Remove(existingSolution);
+            _solutionRepository.Remove(existingSolution);
             await _unitOfWork.CompleteAsync();
 
             return new SolutionResponse(existingSolution);
@@ -79,10 +106,5 @@ public class SolutionService:ISolutionService
             // Do some logging stuff
             return new SolutionResponse($"An error occurred while deleting the Solution: {e.Message}");
         }
-    }
-
-    public async Task<IEnumerable<Solution>> ListByUserProfileIdAsync(int userprofileId)
-    {
-        return await _SolutionRepository.FindByUserProfileIdAsync(userprofileId);
     }
 }

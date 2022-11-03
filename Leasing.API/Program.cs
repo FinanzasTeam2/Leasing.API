@@ -5,7 +5,9 @@ using Leasing.API.App.Persistence.Repositories;
 using Leasing.API.App.Services;
 using Leasing.API.App.Shared.Persistence.Contexts;
 using Leasing.API.Shared.Domain.Repositories;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +18,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1",new OpenApiInfo{
+        Version="v1",
+        Title="Leasing API",
+        Description = "Lasing Aleman Web Services",
+    });
+    options.EnableAnnotations();
+});
 
 //Add Database Connection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

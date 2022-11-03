@@ -6,8 +6,8 @@ namespace Leasing.API.App.Domain.Core;
 public interface ISolutionService
 {
     Task<IEnumerable<Solution>> ListAsync();
+    Task<IEnumerable<Solution>> ListByUserProfileIdAsync(int userprofileId);
     Task<SolutionResponse> SaveAsync(Solution solution);
     Task<SolutionResponse> UpdateAsync(int id, Solution solution);
     Task<SolutionResponse> DeleteAsync(int id);
-    Task<IEnumerable<Solution>> ListByUserProfileIdAsync(int userprofileId);
 }
