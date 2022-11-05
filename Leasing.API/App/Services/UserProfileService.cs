@@ -27,6 +27,23 @@ public class UserProfileService:IUserProfileService
         return await _userProfileRepository.FindByIdAsync(id);
     }
 
+    public async Task<UserProfileResponse> FindByEmailAndPasswordAsync(string email, string password)
+    {
+        var existingUserProfile = await _userProfileRepository.FindByEmailAndPasswordAsync(email,password);
+
+        try
+        {
+            await _unitOfWork.CompleteAsync();
+
+            return new UserProfileResponse(existingUserProfile);
+        }
+        catch (Exception e)
+        {
+            return new UserProfileResponse($"An error occurred while detecting the UserProfile: {e.Message}");
+        }
+    }
+
+
     public async Task<UserProfileResponse> SaveAsync(UserProfile UserProfile)
     {
         try

@@ -23,12 +23,26 @@ public class UserProfileController:ControllerBase
     }
     
     [HttpGet]
-    public async Task<IEnumerable<UserProfileResource>> GetAllAsync()
+    public async Task<IActionResult> GetAllAsync([FromQuery]string? email=null,[FromQuery]string?password=null)
     {
+        if (email != null && password != null)
+        {
+            var result = await _userProfileService.FindByEmailAndPasswordAsync(email, password);
+            
+            if (!result.Success)
+            {
+                return BadRequest(result.Message);
+            }
+            else
+            {
+                return Ok(result);
+            }
+        }
+        
         var userProfiles = await _userProfileService.ListAsync();
         var resources = _mapper.Map<IEnumerable<UserProfile>, IEnumerable<UserProfileResource>>(userProfiles);
 
-        return resources;
+        return Ok(resources);
     }
 
     [HttpGet("{id}")]
@@ -39,6 +53,7 @@ public class UserProfileController:ControllerBase
         
         return resources;
     }
+    
 
     [HttpPost]
     public async Task<IActionResult> PostAsync([FromBody, SwaggerRequestBody("UserProfile Information to Add", Required = true)] SaveUserProfileResource resource)
