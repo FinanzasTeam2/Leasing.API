@@ -16,15 +16,15 @@ namespace Leasing.API.App.Persistence.Repositories
         {
             return await _context.UserProfiles.ToListAsync();
         }
-
-        public async Task AddAsync(UserProfile userProfile)
-        {
-            await _context.UserProfiles.AddAsync(userProfile);
-        }
-
+        
         public async Task<UserProfile> FindByIdAsync(int id)
         {
             return await _context.UserProfiles.FindAsync(id);
+        }
+        
+        public async Task AddAsync(UserProfile userProfile)
+        {
+            await _context.UserProfiles.AddAsync(userProfile);
         }
 
         public void Update(UserProfile userProfile)
@@ -35,14 +35,6 @@ namespace Leasing.API.App.Persistence.Repositories
         public void Remove(UserProfile userProfile)
         {
             _context.UserProfiles.Remove(userProfile);
-        }
-
-        public async Task<IEnumerable<UserProfile>> FindByUserIdAsync(int userId)
-        {
-            return await _context.UserProfiles
-                .Where(p => p.UserId == userId)
-                .Include(p => p.User)
-                .ToListAsync();
         }
     }
 }

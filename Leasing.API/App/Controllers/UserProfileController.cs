@@ -13,22 +13,33 @@ namespace Leasing.API.App.Controllers;
 [Produces("application/json")]
 public class UserProfileController:ControllerBase
 {
-    private readonly IUserProfileService _UserProfileService;
+    private readonly IUserProfileService _userProfileService;
     private readonly IMapper _mapper;
     
-    public UserProfileController(IUserProfileService UserProfileService, IMapper mapper)
+    public UserProfileController(IUserProfileService userProfileService, IMapper mapper)
     {
-        _UserProfileService = UserProfileService;
+        _userProfileService = userProfileService;
         _mapper = mapper;
     }
+    
     [HttpGet]
     public async Task<IEnumerable<UserProfileResource>> GetAllAsync()
     {
-        var brandVehicles = await _UserProfileService.ListAsync();
-        var resources = _mapper.Map<IEnumerable<UserProfile>, IEnumerable<UserProfileResource>>(brandVehicles);
+        var userProfiles = await _userProfileService.ListAsync();
+        var resources = _mapper.Map<IEnumerable<UserProfile>, IEnumerable<UserProfileResource>>(userProfiles);
 
         return resources;
     }
+
+    [HttpGet("{id}")]
+    public async Task<UserProfileResource> GetByIdAsync(int id)
+    {
+        var userProfile = await _userProfileService.FindByIdAsync(id);
+        var resources = _mapper.Map<UserProfile, UserProfileResource>(userProfile);
+        
+        return resources;
+    }
+
     [HttpPost]
     public async Task<IActionResult> PostAsync([FromBody, SwaggerRequestBody("UserProfile Information to Add", Required = true)] SaveUserProfileResource resource)
     {
@@ -37,7 +48,7 @@ public class UserProfileController:ControllerBase
 
         var brandVehicle = _mapper.Map<SaveUserProfileResource, UserProfile>(resource);
 
-        var result = await _UserProfileService.SaveAsync(brandVehicle);
+        var result = await _userProfileService.SaveAsync(brandVehicle);
 
         if (!result.Success)
             return BadRequest(result.Message);
@@ -54,7 +65,7 @@ public class UserProfileController:ControllerBase
 
         var brandVehicle = _mapper.Map<SaveUserProfileResource, UserProfile>(resource);
 
-        var result = await _UserProfileService.UpdateAsync(id, brandVehicle);
+        var result = await _userProfileService.UpdateAsync(id, brandVehicle);
 
         if (!result.Success)
             return BadRequest(result.Message);
@@ -66,7 +77,7 @@ public class UserProfileController:ControllerBase
     [HttpDelete("{id}")]    
     public async Task<IActionResult> DeleteAsync(int id)
     {
-        var result = await _UserProfileService.DeleteAsync(id);
+        var result = await _userProfileService.DeleteAsync(id);
 
         if (!result.Success)
             return BadRequest(result.Message);

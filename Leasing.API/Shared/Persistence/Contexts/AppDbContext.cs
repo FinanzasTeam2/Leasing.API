@@ -19,7 +19,6 @@ public class AppDbContext:DbContext
         public DbSet<RateType> RateTypes { get; set; }
         public DbSet<Solution> Solutions { get; set; }
         public DbSet<Time> Times { get; set; }
-        public DbSet<User> Users { get; set; }
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<VAT> VATs { get; set; }
 
@@ -80,13 +79,6 @@ public class AppDbContext:DbContext
             builder.Entity<Time>().HasKey(p => p.Id);
             builder.Entity<Time>().Property(p => p.Id).IsRequired();
             builder.Entity<Time>().Property(p => p.TimeUnit).HasMaxLength(50);
-
-            //User
-            builder.Entity<User>().ToTable("Users");
-            builder.Entity<User>().HasKey(p => p.Id);
-            builder.Entity<User>().Property(p => p.Id).IsRequired();
-            builder.Entity<User>().Property(p => p.Email).HasMaxLength(50);
-            builder.Entity<User>().Property(p => p.Password).HasMaxLength(50);
             
             //UserProfile
             builder.Entity<UserProfile>().ToTable("UserProfiles");
@@ -141,11 +133,6 @@ public class AppDbContext:DbContext
                 .HasMany(p => p.Periods)
                 .WithOne(p => p.Time)
                 .HasForeignKey(p => p.TimeId);
-            // --------------------------- User -------------------------------- //
-            builder.Entity<User>()
-                .HasMany(p => p.UserProfiles)
-                .WithOne(p => p.User)
-                .HasForeignKey(p => p.UserId);
             // --------------------------- UserProfile -------------------------------- //
             builder.Entity<UserProfile>()
                 .HasMany(p => p.Solutions)

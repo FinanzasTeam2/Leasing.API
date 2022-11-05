@@ -17,7 +17,6 @@ public class ModelToResourceProfile:Profile
         CreateMap<RateType,RateTypeResource>();
         CreateMap<Solution,SolutionResource>();
         CreateMap<UserProfile,UserProfileResource>();
-        CreateMap<User,UserResource>();
         CreateMap<Time,TimeResource>();
         CreateMap<VAT,VATResource>();
     }

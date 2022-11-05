@@ -17,7 +17,6 @@ public class ResourceToModelProfile:Profile
         CreateMap<SaveRateTypeResource,RateType>();
         CreateMap<SaveSolutionResource,Solution>();
         CreateMap<SaveUserProfileResource,UserProfile>();
-        CreateMap<SaveUserResource,User>();
         CreateMap<SaveTimeResource,Time>();
         CreateMap<SaveVATResource,VAT>();
     }
