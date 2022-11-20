@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "yaj9ygGMdiFfBcrKGCVGbyo7ZKL6ZFCx75bmAvOLqfeS3SWbmazw9doWdfF1BhC66MVAJqmAcymmuxveUxi0Ag==",
+  "dgSpecHash": "NmFu/WHUWkScJreTEUtNyDYtR6TZn4RnAM3PtmAAsM8gx1pMMUfC1Z/AOvVyCbFqIA+TTriGCMQxDt5VhQKs8A==",
   "success": true,
-  "projectFilePath": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO\\v2\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
+  "projectFilePath": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO\\API AVANCES\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Lenovo\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\Lenovo\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

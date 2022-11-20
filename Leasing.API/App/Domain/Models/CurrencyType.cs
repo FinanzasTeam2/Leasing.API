@@ -3,9 +3,9 @@
 public class CurrencyType
 {
     public int Id { get; set; }
-    public string CurrencyName { get; set; }
-    public float Price { get; set; }
-    
+    public string Moneda { get; set; }
+    public string Valor { get; set; }
+
     //RelationShip
-    public List<Solution> Solutions = new List<Solution>();
+    public List<LeasingData> LeasingData { get; set; } = new List<LeasingData>();
 }

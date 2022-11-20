@@ -1,6 +1,7 @@
 
 
 using Leasing.API.App.Domain.Models;
+using Leasing.API.App.Shared.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Leasing.API.App.Shared.Persistence.Contexts;
@@ -11,137 +12,133 @@ public class AppDbContext:DbContext
         {
         }
 
-        public DbSet<AssetType> AssetTypes { get; set; }
+        public DbSet<LeasingData> LeasingData { get; set; }
         public DbSet<CurrencyType> CurrencyTypes { get; set; }
-        public DbSet<Fee> Fees { get; set; }
-        public DbSet<FeeType> FeeTypes { get; set; }
-        public DbSet<Period> Periods { get; set; }
-        public DbSet<RateType> RateTypes { get; set; }
-        public DbSet<Solution> Solutions { get; set; }
-        public DbSet<Time> Times { get; set; }
-        public DbSet<UserProfile> UserProfiles { get; set; }
-        public DbSet<VAT> VATs { get; set; }
-
+        public DbSet<LeasingMethod> LeasingMethods { get; set; }
+        public DbSet<LeasingResult> LeasingResults { get; set; }
+        public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
             /*-----------------------Properties and keys-----------------------*/
+
             
-            //AssetType
-            builder.Entity<AssetType>().ToTable("AssetTypes");
-            builder.Entity<AssetType>().HasKey(p => p.Id);
-            builder.Entity<AssetType>().Property(p => p.Id).IsRequired();
-            builder.Entity<AssetType>().Property(p => p.Name).HasMaxLength(50);
+            //LeasingData
+            builder.Entity<LeasingData>().ToTable("leasing_datos");
+            builder.Entity<LeasingData>().HasKey(p => p.Id);
+            builder.Entity<LeasingData>().Property(p => p.Id).IsRequired();
             
+            builder.Entity<LeasingData>().Property(p => p.Porcentaje_Primera_Tasa_Efectiva).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Duracion_Primera_Tasa_Efectiva).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Porcentaje_Segunda_Tasa_Efectiva).HasMaxLength(50);
+
+            builder.Entity<LeasingData>().Property(p => p.Precio_de_Venta_del_Activo).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Porcentaje_Cuota_Inicial).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Numero_de_Años_a_Pagar).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Frecuencia_de_Pago_en_Dias).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Numero_de_Dias_por_Año).HasMaxLength(50);
+            
+            builder.Entity<LeasingData>().Property(p => p.Primer_Plazo_de_Gracia_Meses).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Primer_Tipo_de_Gracia).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Segundo_Plazo_de_Gracia_Meses).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Segundo_Tipo_de_Gracia).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Costes_Notariales).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Costes_Registrales).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Tasacion).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Tasacion).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Comision_de_Estudio).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Comision_de_Activacion).HasMaxLength(50);
+
+            builder.Entity<LeasingData>().Property(p => p.Comision_Periodica).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Portes).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Gastos_de_Administracion).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Porcentaje_de_Seguro_de_Desgravamen).HasMaxLength(50);
+            builder.Entity<LeasingData>().Property(p => p.Porcentaje_de_Seguro_de_Riesgo).HasMaxLength(50);
+
+            builder.Entity<LeasingData>().Property(p => p.Costo_de_Oportunidad).HasMaxLength(50);
+            
+            //LeasingResults
+            builder.Entity<LeasingResult>().ToTable("leasing_resultados");
+            builder.Entity<LeasingResult>().HasKey(p => p.LeasingDataId);
+            builder.Entity<LeasingResult>().Property(p => p.LeasingDataId).IsRequired();
+            
+            builder.Entity<LeasingResult>().Property(p => p.Saldo_a_Financiar).HasMaxLength(50);
+            builder.Entity<LeasingResult>().Property(p => p.Monto_del_Prestamo).HasMaxLength(50);
+            builder.Entity<LeasingResult>().Property(p => p.Numero_de_Cuotas_por_Año).HasMaxLength(50);
+            builder.Entity<LeasingResult>().Property(p => p.Numero_Total_de_Cuotas).HasMaxLength(50);
+
+            builder.Entity<LeasingResult>().Property(p => p.Porcentaje_de_Seguro_Desgravamen_Periodo).HasMaxLength(50);
+            builder.Entity<LeasingResult>().Property(p => p.Seguro_Riesgo).HasMaxLength(50);
+            
+            builder.Entity<LeasingResult>().Property(p => p.Intereses).HasMaxLength(50);
+            builder.Entity<LeasingResult>().Property(p => p.Amortizacion_del_Capital).HasMaxLength(50);
+            builder.Entity<LeasingResult>().Property(p => p.Seguro_de_Desgravamen).HasMaxLength(50);
+            builder.Entity<LeasingResult>().Property(p => p.Seguro_Contra_Todo_Riesgo).HasMaxLength(50);
+            builder.Entity<LeasingResult>().Property(p => p.Comisiones_Periodicas_Riesgo).HasMaxLength(50);
+            builder.Entity<LeasingResult>().Property(p => p.Portes_Gastos_de_Administración).HasMaxLength(50);
+
+            builder.Entity<LeasingResult>().Property(p => p.Tasa_de_Descuento).HasMaxLength(50);
+            builder.Entity<LeasingResult>().Property(p => p.TIR_de_la_Operación).HasMaxLength(50);
+            builder.Entity<LeasingResult>().Property(p => p.TCEA_de_la_Operación).HasMaxLength(50);
+            builder.Entity<LeasingResult>().Property(p => p.VAN_Operación).HasMaxLength(50);
+
+            //LeasingMethod
+            builder.Entity<LeasingMethod>().ToTable("leasing_metodos");
+            builder.Entity<LeasingMethod>().HasKey(p => p.Id);
+            builder.Entity<LeasingMethod>().Property(p => p.Id).IsRequired();
+            builder.Entity<LeasingMethod>().Property(p => p.Nombre).HasMaxLength(50);
+            
+            //User
+            builder.Entity<User>().ToTable("usuarios");
+            builder.Entity<User>().HasKey(p => p.Id);
+            builder.Entity<User>().Property(p => p.Id).IsRequired();
+            builder.Entity<User>().Property(p => p.Nombre).HasMaxLength(50);
+            builder.Entity<User>().Property(p => p.Apellido).HasMaxLength(50);
+            builder.Entity<User>().Property(p => p.Correo).HasMaxLength(50);
+            builder.Entity<User>().Property(p => p.Contraseña).HasMaxLength(50);
+
             //CurrencyType
-            builder.Entity<CurrencyType>().ToTable("CurrencyTypes");
+            builder.Entity<CurrencyType>().ToTable("tipo_monedas");
             builder.Entity<CurrencyType>().HasKey(p => p.Id);
             builder.Entity<CurrencyType>().Property(p => p.Id).IsRequired();
-            builder.Entity<CurrencyType>().Property(p => p.CurrencyName).HasMaxLength(50);
-            builder.Entity<CurrencyType>().Property(p => p.Price).HasMaxLength(50);
-            
-            //Fee
-            builder.Entity<Fee>().ToTable("Fees");
-            builder.Entity<Fee>().HasKey(p => p.Id);
-            builder.Entity<Fee>().Property(p => p.Id).IsRequired();
-            builder.Entity<Fee>().Property(p => p.Quantity).HasMaxLength(50);
-            
-            //FeeType
-            builder.Entity<FeeType>().ToTable("FeeTypes");
-            builder.Entity<FeeType>().HasKey(p => p.Id);
-            builder.Entity<FeeType>().Property(p => p.Id).IsRequired();
-            builder.Entity<FeeType>().Property(p => p.FeeName).HasMaxLength(50);
-            
-            //Period
-            builder.Entity<Period>().ToTable("Periods");
-            builder.Entity<Period>().HasKey(p => p.Id);
-            builder.Entity<Period>().Property(p => p.Id).IsRequired();
-            builder.Entity<Period>().Property(p => p.Quantity).HasMaxLength(50);
+            builder.Entity<CurrencyType>().Property(p => p.Moneda).HasMaxLength(50);
+            builder.Entity<CurrencyType>().Property(p => p.Valor).HasMaxLength(50);
 
-            //RateType
-            builder.Entity<RateType>().ToTable("RateTypes");
-            builder.Entity<RateType>().HasKey(p => p.Id);
-            builder.Entity<RateType>().Property(p => p.Id).IsRequired();
-            builder.Entity<RateType>().Property(p => p.RateName).HasMaxLength(50);
-            builder.Entity<RateType>().Property(p => p.Percentage).HasMaxLength(50);
-            
-            //Solution
-            builder.Entity<Solution>().ToTable("Solutions");
-            builder.Entity<Solution>().HasKey(p => p.Id);
-            builder.Entity<Solution>().Property(p => p.Id).IsRequired();
-            builder.Entity<Solution>().Property(p => p.LoanDate).HasMaxLength(50);
-            builder.Entity<Solution>().Property(p => p.FirstPaymentDate).HasMaxLength(50);
-            builder.Entity<Solution>().Property(p => p.Value).HasMaxLength(50);
-
-            //Time
-            builder.Entity<Time>().ToTable("Times");
-            builder.Entity<Time>().HasKey(p => p.Id);
-            builder.Entity<Time>().Property(p => p.Id).IsRequired();
-            builder.Entity<Time>().Property(p => p.TimeUnit).HasMaxLength(50);
-            
-            //UserProfile
-            builder.Entity<UserProfile>().ToTable("UserProfiles");
-            builder.Entity<UserProfile>().HasKey(p => p.Id);
-            builder.Entity<UserProfile>().Property(p => p.Id).IsRequired();
-            builder.Entity<UserProfile>().Property(p => p.FirstName).HasMaxLength(50);
-            builder.Entity<UserProfile>().Property(p => p.LastName).HasMaxLength(50);
-
-            //VAT
-            builder.Entity<VAT>().ToTable("VATs");
-            builder.Entity<VAT>().HasKey(p => p.Id);
-            builder.Entity<VAT>().Property(p => p.Id).IsRequired();
-            builder.Entity<VAT>().Property(p => p.Percentage).HasMaxLength(50);
-            
             /*----------------------- Relationships and Foreignkeys -----------------------*/
             
-            // --------------------------- AssetType -------------------------------- //
+            // --------------------------- User -------------------------------- //
             
-            //AssetType with Solution
-            builder.Entity<AssetType>()
-                .HasMany(p => p.Solutions)
-                .WithOne(p => p.AssetType)
-                .HasForeignKey(p => p.AssetTypeId);
+            //User with LeasingData
+            builder.Entity<User>()
+                .HasMany(p => p.LeasingData)
+                .WithOne(p => p.User)
+                .HasForeignKey(p => p.UserId);
 
             // --------------------------- CurrencyType -------------------------------- //
+            
+            //CurrencyType with LeasingData 
             builder.Entity<CurrencyType>()
-                .HasMany(p => p.Solutions)
+                .HasMany(p => p.LeasingData)
                 .WithOne(p => p.CurrencyType)
                 .HasForeignKey(p => p.CurrencyTypeId);
-            // --------------------------- Fee -------------------------------- //
-            builder.Entity<Fee>()
-                .HasMany(p => p.Solutions)
-                .WithOne(p => p.Fee)
-                .HasForeignKey(p => p.FeeId);
-            // --------------------------- FeeType -------------------------------- //
-            builder.Entity<FeeType>()
-                .HasMany(p => p.Fees)
-                .WithOne(p => p.FeeType)
-                .HasForeignKey(p => p.FeeTypeId);
-            // --------------------------- Period -------------------------------- //
-            builder.Entity<Period>()
-                .HasMany(p => p.Solutions)
-                .WithOne(p => p.Period)
-                .HasForeignKey(p => p.PeriodId);
-            // --------------------------- RateType -------------------------------- //
-            builder.Entity<RateType>()
-                .HasMany(p => p.Solutions)
-                .WithOne(p => p.RateType)
-                .HasForeignKey(p => p.RateTypeId);
-            // --------------------------- Time -------------------------------- //
-            builder.Entity<Time>()
-                .HasMany(p => p.Periods)
-                .WithOne(p => p.Time)
-                .HasForeignKey(p => p.TimeId);
-            // --------------------------- UserProfile -------------------------------- //
-            builder.Entity<UserProfile>()
-                .HasMany(p => p.Solutions)
-                .WithOne(p => p.UserProfile)
-                .HasForeignKey(p => p.UserProfileId);
-            // --------------------------- VAT -------------------------------- //
-            builder.Entity<VAT>()
-                .HasMany(p => p.Solutions)
-                .WithOne(p => p.VAT)
-                .HasForeignKey(p => p.VATId);
+
+            // --------------------------- LeasingData -------------------------------- //
+            
+            //LeasingData with LeasingResult 
+            builder.Entity<LeasingData>()
+                .HasOne(p => p.LeasingResult)
+                .WithOne(p => p.LeasingData)
+                .HasForeignKey<LeasingResult>(p=>p.LeasingDataId).IsRequired();
+            
+            // --------------------------- LeasingMethod -------------------------------- //
+            
+            //LeasingMethod with LeasingResult 
+            builder.Entity<LeasingMethod>()
+                .HasMany(p => p.LeasingResults)
+                .WithOne(p => p.LeasingMethod)
+                .HasForeignKey(p=>p.LeasingMethodId);
+
+            //builder.UseSnakeCaseNamingConvention();
         }
 }

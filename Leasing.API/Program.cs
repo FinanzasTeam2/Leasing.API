@@ -45,35 +45,21 @@ builder.Services.AddCors();
 
 // Dependency Injection Configuration
 
-builder.Services.AddScoped<IAssetTypeRepository, AssetTypeRepository>();
-builder.Services.AddScoped<IAssetTypeService, AssetTypeService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddScoped<ILeasingMethodRepository, LeasingMethodRepository>();
+builder.Services.AddScoped<ILeasingMethodService, LeasingMethodService>();
+
+builder.Services.AddScoped<ILeasingResultRepository, LeasingResultRepository>();
+builder.Services.AddScoped<ILeasingResultService, LeasingResultService>();
+
+builder.Services.AddScoped<ILeasingDataRepository, LeasingDataRepository>();
+builder.Services.AddScoped<ILeasingDataService, LeasingDataService>();
 
 builder.Services.AddScoped<ICurrencyTypeRepository, CurrencyTypeRepository>();
 builder.Services.AddScoped<ICurrencyTypeService, CurrencyTypeService>();
 
-builder.Services.AddScoped<IFeeRepository, FeeRepository>();
-builder.Services.AddScoped<IFeeService, FeeService>();
-
-builder.Services.AddScoped<IFeeTypeRepository, FeeTypeRepository>();
-builder.Services.AddScoped<IFeeTypeService, FeeTypeService>();
-
-builder.Services.AddScoped<IPeriodRepository, PeriodRepository>();
-builder.Services.AddScoped<IPeriodService, PeriodService>();
-
-builder.Services.AddScoped<IRateTypeRepository, RateTypeRepository>();
-builder.Services.AddScoped<IRateTypeService, RateTypeService>();
-
-builder.Services.AddScoped<ISolutionRepository, SolutionRepository>();
-builder.Services.AddScoped<ISolutionService, SolutionService>();
-
-builder.Services.AddScoped<IUserProfileRepository, UserProfileRepository>();
-builder.Services.AddScoped<IUserProfileService, UserProfileService>();
-
-builder.Services.AddScoped<ITimeRepository, TimeRepository>();
-builder.Services.AddScoped<ITimeService, TimeService>();
-
-builder.Services.AddScoped<IVATRepository, VATRepository>();
-builder.Services.AddScoped<IVATService, VATService>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 

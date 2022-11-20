@@ -2120,11 +2120,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO\\v2\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
+      "projectUniqueName": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO\\API AVANCES\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
       "projectName": "Leasing.API",
-      "projectPath": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO\\v2\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
+      "projectPath": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO\\API AVANCES\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
       "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-      "outputPath": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO\\v2\\Leasing.API\\Leasing.API\\obj\\",
+      "outputPath": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO\\API AVANCES\\Leasing.API\\Leasing.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
