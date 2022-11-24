@@ -31,7 +31,7 @@ builder.Services.AddSwaggerGen(options =>
 //Add Database Connection
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(
-    options => options.UseMySQL(connectionString)
+    options => options.UseSqlServer(connectionString)
         .LogTo(Console.WriteLine, LogLevel.Information)
         .EnableSensitiveDataLogging()
         .EnableDetailedErrors());
@@ -83,11 +83,11 @@ using (var context = scope.ServiceProvider.GetService<AppDbContext>())
 
 
 // Configure the HTTP request pipeline.
-//if (app.Environment.IsDevelopment())
-//{
+if (app.Environment.IsDevelopment())
+{
     app.UseSwagger();
     app.UseSwaggerUI();
-//}
+}
 // Configure CORS
 
 app.UseCors(x => x
