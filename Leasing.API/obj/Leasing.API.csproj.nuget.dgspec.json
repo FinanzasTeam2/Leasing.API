@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO FINAL FINAL\\Desplegable\\Leasing.API\\Leasing.API\\Leasing.API.csproj": {}
+    "C:\\Users\\Sho Lee\\Documents\\Renato\\Leasing.API\\Leasing.API\\Leasing.API.csproj": {}
   },
   "projects": {
-    "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO FINAL FINAL\\Desplegable\\Leasing.API\\Leasing.API\\Leasing.API.csproj": {
+    "C:\\Users\\Sho Lee\\Documents\\Renato\\Leasing.API\\Leasing.API\\Leasing.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO FINAL FINAL\\Desplegable\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
+        "projectUniqueName": "C:\\Users\\Sho Lee\\Documents\\Renato\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
         "projectName": "Leasing.API",
-        "projectPath": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO FINAL FINAL\\Desplegable\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
-        "packagesPath": "C:\\Users\\Lenovo\\.nuget\\packages\\",
-        "outputPath": "E:\\Desktop\\UPC\\2022-2\\Finanzas\\PROYECTO FINAL FINAL\\Desplegable\\Leasing.API\\Leasing.API\\obj\\",
+        "projectPath": "C:\\Users\\Sho Lee\\Documents\\Renato\\Leasing.API\\Leasing.API\\Leasing.API.csproj",
+        "packagesPath": "C:\\Users\\Sho Lee\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sho Lee\\Documents\\Renato\\Leasing.API\\Leasing.API\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sho Lee\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -62,9 +66,9 @@
               "target": "Package",
               "version": "[6.0.5, )"
             },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
+            "MySql.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.5, )"
+              "version": "[6.0.1, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -81,8 +85,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -94,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.306\\RuntimeIdentifierGraph.json"
         }
       }
     }
