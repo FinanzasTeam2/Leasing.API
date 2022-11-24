@@ -38,13 +38,14 @@ public class LeasingResultService:ILeasingResultService
     public async Task<LeasingResultResponse> SaveAsync(LeasingResult leasingResult)
     {
         //Validate LeasingData Id
-        var existingLeasingData =  _leasingDataRepository.GetLastLeasingDataId();
-        
+        //var existingLeasingData =  _leasingDataRepository.GetLastLeasingDataId();
+        /*
         if (existingLeasingData == null)
             return new LeasingResultResponse("Invalid LeasingData");
 
         leasingResult.LeasingDataId = existingLeasingData.Id;
-        
+        */    
+        //var existingLeasingData =  _leasingDataRepository.GetLastLeasingDataId();
         try
         {
             await _leasingResultRepository.AddAsync(leasingResult);

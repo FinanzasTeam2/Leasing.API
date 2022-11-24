@@ -69,7 +69,7 @@ public class UserService:IUserService
         existingUser.Nombre = User.Nombre;
         existingUser.Apellido = User.Apellido;
         existingUser.Correo = User.Correo;
-        existingUser.Contraseña = User.Contraseña;
+        existingUser.Contrasenia = User.Contrasenia;
         
         try
         {

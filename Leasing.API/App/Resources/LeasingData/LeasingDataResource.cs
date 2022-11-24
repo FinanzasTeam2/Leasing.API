@@ -9,9 +9,9 @@ public class LeasingDataResource
     
     public float Precio_de_Venta_del_Activo { get; set; }
     public float Porcentaje_Cuota_Inicial { get; set; }
-    public int Numero_de_Años_a_Pagar { get; set; }
+    public int Numero_de_Anios_a_Pagar { get; set; }
     public int Frecuencia_de_Pago_en_Dias { get; set; }
-    public int Numero_de_Dias_por_Año { get; set; }
+    public int Numero_de_Dias_por_Anio { get; set; }
 
     public int Primer_Plazo_de_Gracia_Meses { get; set; }
     public string Primer_Tipo_de_Gracia { get; set; }

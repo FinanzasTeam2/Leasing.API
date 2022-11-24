@@ -6,7 +6,7 @@ public class User
     public string Nombre { get; set; }
     public string Apellido { get; set; }
     public string Correo { get; set; }
-    public string Contraseña { get; set; }
+    public string Contrasenia { get; set; }
 
     public List<LeasingData> LeasingData { get; set; } = new List<LeasingData>();
 }

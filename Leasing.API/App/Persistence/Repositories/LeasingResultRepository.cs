@@ -30,8 +30,8 @@ namespace Leasing.API.App.Persistence.Repositories
         public async Task<IEnumerable<LeasingResult>> FindByLeasingDataIdAsync(int leasingDataId)
         {
             return await _context.LeasingResults
-                .Where(p => p.LeasingDataId == leasingDataId)
-                .Include(p => p.LeasingDataId)
+                .Where(p => p.Id == leasingDataId)
+                .Include(p => p.Id)
                 .ToListAsync();
         }
     }

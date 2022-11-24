@@ -26,7 +26,7 @@ namespace Leasing.API.App.Persistence.Repositories
         public async Task<User> FindByEmailAndPasswordAsync(string email, string password)
         {
             var User =  _context.Users.
-                Where(u=>u.Correo == email && u.Contraseña==password)
+                Where(u=>u.Correo == email && u.Contrasenia==password)
                 .FirstOrDefault();
 
             return User;

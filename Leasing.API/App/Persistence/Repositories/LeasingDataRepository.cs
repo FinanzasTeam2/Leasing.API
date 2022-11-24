@@ -27,6 +27,7 @@ namespace Leasing.API.App.Persistence.Repositories
             return await _context.LeasingData.FindAsync(id);
         }
         
+        
         public async Task<LeasingData> GetLastLeasingDataId()
         {
             return await _context.LeasingData.LastOrDefaultAsync();
