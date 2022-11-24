@@ -23,6 +23,6 @@ public class SaveLeasingResultResource
     public float VAN_Operacion { get; set; }
     
     //RelationShip
-    
+    public int LeasingDataId { get; set;}
     public int LeasingMethodId { get; set; }
 }
