@@ -8,6 +8,8 @@ namespace Leasing.API.App.Persistence.Repositories
 
     public class LeasingResultRepository : BaseRepository, ILeasingResultRepository
     {
+        private ILeasingResultRepository _leasingResultRepositoryImplementation;
+
         public LeasingResultRepository(AppDbContext context) : base(context)
         {
         }
@@ -17,6 +19,11 @@ namespace Leasing.API.App.Persistence.Repositories
             return await _context.LeasingResults.ToListAsync();
         }
 
+        public async Task<IEnumerable<LeasingResult>> FindByUserIdAsync(int userId)
+        {
+            return await _context.LeasingResults.Where(x => x.LeasingData.UserId == userId).ToListAsync();
+        }
+
         public async Task AddAsync(LeasingResult leasingResult)
         {
             await _context.LeasingResults.AddAsync(leasingResult);
@@ -24,7 +31,7 @@ namespace Leasing.API.App.Persistence.Repositories
 
         public async Task<LeasingResult> FindByIdAsync(int id)
         {
-            return await _context.LeasingResults.FindAsync(id);
+            return (await _context.LeasingResults.FindAsync(id))!;
         }
         
         public async Task<IEnumerable<LeasingResult>> FindByLeasingDataIdAsync(int leasingDataId)

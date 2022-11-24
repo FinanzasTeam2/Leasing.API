@@ -9,22 +9,34 @@ namespace Leasing.API.App.Services;
 public class LeasingResultService:ILeasingResultService
 {
     private readonly ILeasingResultRepository _leasingResultRepository;
+    private readonly IUserRepository _userRepository;
     private readonly IUnitOfWork _unitOfWork;
 
     private readonly ILeasingDataRepository _leasingDataRepository;
     
-    public LeasingResultService(ILeasingResultRepository leasingResultRepository, IUnitOfWork unitOfWork, ILeasingDataRepository leasingDataRepository)
+    public LeasingResultService(ILeasingResultRepository leasingResultRepository, IUnitOfWork unitOfWork, ILeasingDataRepository leasingDataRepository, IUserRepository userRepository)
     {
         _leasingResultRepository = leasingResultRepository;
         _unitOfWork = unitOfWork;
         _leasingDataRepository = leasingDataRepository;
+        _userRepository = userRepository;
     }
     
     public async Task<IEnumerable<LeasingResult>> ListAsync()
     {
         return await _leasingResultRepository.ListAsync();
     }
-    
+
+    public async Task<IEnumerable<LeasingResult>> FindByUserIdAsync(int userId)
+    {
+        var isExist = await _userRepository.FindByIdAsync(userId);
+        if (isExist == null)
+        {
+            return null;
+        }
+        return await _leasingResultRepository.FindByUserIdAsync(userId);
+    }
+
     public async Task<IEnumerable<LeasingResult>> FindByLeasingDataIdAsync(int userId)
     {
         return await _leasingResultRepository.FindByLeasingDataIdAsync(userId);

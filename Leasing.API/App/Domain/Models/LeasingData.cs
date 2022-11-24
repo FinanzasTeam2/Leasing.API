@@ -39,5 +39,5 @@ public class LeasingData
     public User User { get; set; }
     public int UserId { get; set; }
     
-    public LeasingResult LeasingResult { get; set; }
+    public IList<LeasingResult> LeasingResults { get; set; } = new List<LeasingResult>();
 }

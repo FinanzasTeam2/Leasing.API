@@ -33,8 +33,16 @@ public class LeasingResultController:ControllerBase
 
         return resources;
     }
-    
-    
+
+    [HttpGet("{userId}")]
+    public async Task<IEnumerable<LeasingResultResource>> FindByUserIdAsync(int userId)
+    {
+        var leasingResult = await _leasingResultService.FindByUserIdAsync(userId);
+        var resources = _mapper.Map<IEnumerable<LeasingResult>, IEnumerable<LeasingResultResource>>(leasingResult);
+        return resources;
+    }
+
+
     [HttpPost]
     public async Task<IActionResult> PostAsync([FromBody, SwaggerRequestBody("LeasingResult Information to Add", Required = true)] SaveLeasingResultResource resource)
     {

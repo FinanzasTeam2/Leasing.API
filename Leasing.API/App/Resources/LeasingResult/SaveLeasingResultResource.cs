@@ -2,7 +2,6 @@
 
 public class SaveLeasingResultResource
 {
-    public int Id { get; set; }
     public float Saldo_a_Financiar { get; set; }
     public float Monto_del_Prestamo { get; set; }
     public int Numero_de_Cuotas_por_Anio { get; set; }
@@ -24,5 +23,6 @@ public class SaveLeasingResultResource
     public float VAN_Operacion { get; set; }
     
     //RelationShip
+    
     public int LeasingMethodId { get; set; }
 }

@@ -61,7 +61,7 @@ public class AppDbContext:DbContext
             //LeasingResults
             builder.Entity<LeasingResult>().ToTable("leasing_resultados");
             builder.Entity<LeasingResult>().HasKey(p => p.Id);
-            builder.Entity<LeasingResult>().Property(p => p.Id).IsRequired();
+            builder.Entity<LeasingResult>().Property(p => p.Id).IsRequired().ValueGeneratedOnAdd();
             
             builder.Entity<LeasingResult>().Property(p => p.Saldo_a_Financiar).HasMaxLength(50);
             builder.Entity<LeasingResult>().Property(p => p.Monto_del_Prestamo).HasMaxLength(50);
@@ -127,9 +127,9 @@ public class AppDbContext:DbContext
             
             //LeasingData with LeasingResult 
             builder.Entity<LeasingData>()
-                .HasOne(p => p.LeasingResult)
+                .HasMany(p => p.LeasingResults)
                 .WithOne(p => p.LeasingData)
-                .HasForeignKey<LeasingResult>(p=>p.Id).IsRequired();
+                .HasForeignKey(p => p.LeasingDataId);
             
             // --------------------------- LeasingMethod -------------------------------- //
             

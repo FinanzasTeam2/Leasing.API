@@ -25,6 +25,7 @@ public class LeasingResult
     
     //RelationShip
     public LeasingData LeasingData { get; set; }
+    public int LeasingDataId { get; set; }
     public LeasingMethod LeasingMethod { get; set; }
     public int LeasingMethodId { get; set; }
 }
